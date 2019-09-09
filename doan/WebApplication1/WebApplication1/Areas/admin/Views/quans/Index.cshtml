@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication1.Models.quan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN VỀ QUÁN ĂN</h2><br />
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "quans")" role="button">Tạo quán ăn mới</a>
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "quans", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+                   
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên quán ăn</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Tên thành phố</th>
+                            <th>Hình ảnh quán 1</th>
+                            <th>Hình ảnh quán 2</th>
+                            <th>Hình ảnh quán 3</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.idquan)</td>
+                            <td>@Html.DisplayFor(modelItem => item.tenquan)</td>
+                            <td>@Html.DisplayFor(modelItem => item.danhmuc.tendm)</td>
+                            <td>@Html.DisplayFor(modelItem => item.tentp)</td>
+                            <td><img src="~/@item.hinhanhquan" width="50" height="50" /></td>
+                            <td><img src="~/@item.hinhanhquan1" width="50" height="50" /></td>
+                            <td><img src="~/@item.hinhanhquan2" width="50" height="50" /></td>
+                            <td>
+                                <a href="@Url.Action("Edit", "quans", new { id = item.idquan })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                <a href="@Url.Action("Details", "quans", new { id = item.idquan })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                <a onclick="return confirm('Bạn có chắc chắn muốn xoá quán ăn này?')" href="@Url.Action("Delete", "quans", new { id = item.idquan })"><i class="fa fa-times fa-fw"></i></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

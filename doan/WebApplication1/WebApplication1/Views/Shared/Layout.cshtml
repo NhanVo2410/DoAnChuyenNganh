@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome icons -->
+    <link href="~/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+
+    <script src="~/js/okzoom.js"></script>
+    <script>
+        $(function () {
+            $('#example').okzoom({
+                width: 150,
+                height: 150,
+                border: "1px solid black",
+                shadow: "0 0 5px #000"
+            });
+        });
+    </script>
+
+    <link href='~///fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='~///fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <div>
+
+        <div class="agileits_header">
+            <div class="w3l_offers">
+                <a href="products.html">Chào mừng bạn đến với website ăn uống !</a>
+            </div>
+            <div style="margin-left:55px" class="w3l_search">
+                @using (Html.BeginForm("kqtimkiemtheodiachi", "timkiem", FormMethod.Post))
+                {
+                    @*@Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa " })*@
+                    <input type="text" name="timkiem" value="Mời bạn bạn từ khóa..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+                    <input type="submit" value=" ">
+
+                }
+            </div>
+            <div class="product_list_header">
+                <form class="last">
+                    @{
+                        List<WebApplication1.Models.CartItem> gio = Session["giohang"] as List<WebApplication1.Models.CartItem>;
+                        if (gio == null || gio.Count == 0)
+                        {
+                            <a href="@Url.Action("Index","GioHang")"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge">0</span></span></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index","GioHang")"><span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge">@gio.Count</span></span></a>
+                        }
+                    }
+
+
+
+
+                </form>
+            </div>
+            <div class="w3l_header_right">
+                @if (Session["Name"] == null)
+                {
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                            <div class="mega-dropdown-menu">
+                                <div class="w3ls_vegetables">
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li><a href="@Url.Action("Register","user")">Đăng ký</a></li>
+                                        <li><a href="~/User/LogIn"> Đăng nhập</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+
+
+
+                }
+                else
+                {
+                    <ul>
+                        <li style="color:white;font-size:17px">Xin chào @Session["name"].ToString() !</li>
+                        <li>@Html.ActionLink(" LogOut", "LogOff", "User")</li>
+                    </ul>
+                }
+
+
+            </div>
+            <div class="w3l_header_right1">
+                <h2><a href="https://accounts.google.com/signin/v2/identifier?hl=vi&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession">Liên hệ</a></h2>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- script-for sticky-nav -->
+        <script>
+            $(document).ready(function () {
+                var navoffeset = $(".agileits_header").offset().top;
+                $(window).scroll(function () {
+                    var scrollpos = $(window).scrollTop();
+                    if (scrollpos >= navoffeset) {
+                        $(".agileits_header").addClass("fixed");
+                    } else {
+                        $(".agileits_header").removeClass("fixed");
+                    }
+                });
+
+            });
+        </script>
+        <!-- script-for sticky-nav -->
+        <script>
+            $(document).ready(function () {
+                var navoffeset = $(".agileits_header").offset().top;
+                $(window).scroll(function () {
+                    var scrollpos = $(window).scrollTop();
+                    if (scrollpos >= navoffeset) {
+                        $(".agileits_header").addClass("fixed");
+                    } else {
+                        $(".agileits_header").removeClass("fixed");
+                    }
+                });
+
+            });
+        </script>
+        <!-- //script-for sticky-nav -->
+        <div class="logo_products">
+            <div class="container">
+                <div class="w3ls_logo_products_left">
+                    <h1><a href="http://localhost:49825/Home/Index"><span>FOOD LOCATED</span> Store</a></h1>
+                </div>
+                <div class="w3ls_logo_products_left1">
+                    <ul class="special_items">
+                        <li><a href="http://localhost:49825/Home/Index">Trang chủ</a><i>/</i></li>
+                        <li><a href="#">Địa điểm phổ biến</a><i>/</i></li>
+                        <li><a href="http://localhost:49825/ThanhToan">Đặt đồ ăn, thức uống</a><i>/</i></li>
+                        <li><a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox?compose=GTvVlcSMSqVtBKJwwMJmcgxgSWxFpxPFjwbwnVqhrgMnJNNdgmDZkGFjZNQWkXtmXFqSdWjTtPpst">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="w3ls_logo_products_left1">
+                    <ul class="phone_email">
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>(+89) 234 567</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">websitefoodlocate@grocery.com</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //header -->
+        <!-- banner -->
+
+        @Html.Action("loaddanhmuc", "danhmuc")
+        
+
+        @RenderBody()
+        <!-- banner -->
+        <!-- top-brands -->
+        <!-- //top-brands -->
+        <!-- fresh-vegetables -->
+        @*<div class="fresh-vegetables">
+            <div class="container">
+                <h3>Top Products</h3>
+                <div class="w3l_fresh_vegetables_grids">
+                    <div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
+                        <div class="w3l_fresh_vegetables_grid2">
+                            <ul>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">All Brands</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables.html">Vegetables</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables.html">Fruits</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="drinks.html">Juices</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="pet.html">Pet Food</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="bread.html">Bread & Bakery</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="household.html">Cleaning</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Spices</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Dry Fruits</a></li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i><a href="products.html">Dairy Products</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9 w3l_fresh_vegetables_grid_right">
+                        <div class="col-md-4 w3l_fresh_vegetables_grid">
+                            <div class="w3l_fresh_vegetables_grid1">
+                                <img src="~/images/8.jpg" alt=" " class="img-responsive" />
+                            </div>
+                        </div>
+                        <div class="col-md-4 w3l_fresh_vegetables_grid">
+                            <div class="w3l_fresh_vegetables_grid1">
+                                <div class="w3l_fresh_vegetables_grid1_rel">
+                                    <img src="~/images/7.jpg" alt=" " class="img-responsive" />
+                                    <div class="w3l_fresh_vegetables_grid1_rel_pos">
+                                        <div class="more m1">
+                                            <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3l_fresh_vegetables_grid1_bottom">
+                                <img src="~/images/10.jpg" alt=" " class="img-responsive" />
+                                <div class="w3l_fresh_vegetables_grid1_bottom_pos">
+                                    <h5>Special Offers</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 w3l_fresh_vegetables_grid">
+                            <div class="w3l_fresh_vegetables_grid1">
+                                <img src="~/images/9.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="w3l_fresh_vegetables_grid1_bottom">
+                                <img src="~/images/11.jpg" alt=" " class="img-responsive" />
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <div class="agileinfo_move_text">
+                            <div class="agileinfo_marquee">
+                                <h4>get <span class="blink_me">25% off</span> on first order and also get gift voucher</h4>
+                            </div>
+                            <div class="agileinfo_breaking_news">
+                                <span> </span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- //fresh-vegetables -->
+        <!-- newsletter -->
+        @*<div class="newsletter">
+            <div class="container">
+                <div class="w3agile_newsletter_left">
+                    <h3>sign up for our newsletter</h3>
+                </div>
+                <div class="w3agile_newsletter_right">
+                    <form action="#" method="post">
+                        <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                        <input type="submit" value="subscribe now">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>*@
+        <!-- //newsletter -->
+        <!-- footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Thông tin</h3>
+                    <ul class="w3_footer_grid_list">
+                        <li><a href="http://localhost:49825/Home/Index">Sự kiện</a></li>
+                        <li><a href="mailto:store@grocery.com">Liên hệ</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Sự kiện gần đây</h3>
+                    <ul class="w3_footer_grid_list">
+                        <li><a href="pet.html">Giảm giá</a></li>
+                        <li><a href="frozen.html">Khuyến mãi</a></li>
+                        <li><a href="kitchen.html">Nhân Voter</a></li>
+                        
+
+                    </ul>
+                </div>
+
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Có gì ở Website</h3>
+                    <ul class="w3_footer_grid_list">
+                        <li><a href="http://localhost:49825/danhmuc/danhsachcacdanhmuc/2">Thức ăn</a></li>
+                        <li><a href="http://localhost:49825/chitiet/Loadchitiet/9l">Nước uống</a></li>
+                        <li><a href="http://localhost:49825/danhmuc/danhsachcacdanhmuc/1">Nhà hàng</a></li>
+                        
+
+                    </ul>
+                </div>
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Tin tức</h3>
+                    <ul class="w3_footer_grid_list1">
+                        <li>
+                            <label class="fa fa-twitter" aria-hidden="true"></label><i>01 day ago</i><span>
+                                Đến ngay <a href="http://localhost:49825/chitiet/Loadchitiet/6">Website của chúng tôi</a>
+                                để nhận những ưu đãi đặc biệt
+                               
+                            </span>
+                        </li>
+                        <li>
+                            <label class="fa fa-twitter" aria-hidden="true"></label><i>02 day ago</i><span>
+                                 Đến ngay <a href="http://localhost:49825/chitiet/Loadchitiet/6">Website của chúng tôi</a>
+                                để nhận những ưu đãi đặc biệt
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="agile_footer_grids">
+
+                    <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                        <div class="w3_footer_grid_bottom">
+                            <h5>Liên hệ với chúng tôi</h5>
+                            <ul class="agileits_social_icons">
+                                <li><a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/?lang=vi" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://mail.google.com/mail/u/0/" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://dribbble.com/" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="wthree_footer_copy">
+                    <p>© 2016 Preview food located website. All rights reserved | Design by <a href="http://nhan.com/">Nhan</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- //footer -->
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                        $(this).toggleClass('open');
+                    },
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                        $(this).toggleClass('open');
+                    }
+                );
+            });
+
+            function postComment() {
+                var name = $("#nameCommenter").val();
+                var content = $("#content").val();
+                var newComment = '';
+                $.ajax({
+                    url: "/Home/PostComment",
+                    data: { nameCommenter: name, noidung: content },
+                    type: "POST",
+                    success: function (data) {
+                        //console.log(data.nameauthor);//return json from controller
+                        newComment += '<div class="media mb-4"><img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""><div class="media-body"><h5 class="mt-0">' + data.nameauthor + '</h5>' + data.noidung + '</div></div>';
+                        $('#Contentcomment').append(newComment);
+                    },
+                    error: function (e) {
+                        bootbox.alert(e.responseText);
+                    }
+                });
+            }
+        </script>
+
+
+
+
+
+        <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+                    var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                    };
+                */
+
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+            });
+        </script>
+        <!-- //here ends scrolling icon -->
+        <script src="~/js/minicart.js"></script>
+        <script>
+            paypal.minicart.render();
+
+            paypal.minicart.cart.on('checkout', function (evt) {
+                var items = this.items(),
+                    len = items.length,
+                    total = 0,
+                    i;
+
+                // Count the number of each item in the cart
+                for (i = 0; i < len; i++) {
+                    total += items[i].get('quantity');
+                }
+
+                if (total < 3) {
+                    alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                    evt.preventDefault();
+                }
+            });
+
+        </script>
+    </div>
+</body>
+</html>

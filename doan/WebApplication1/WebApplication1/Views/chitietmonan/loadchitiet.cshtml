@@ -1,0 +1,40 @@
+﻿@model List<WebApplication1.Models.thucan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="w3l_banner_nav_right">
+   
+    <div class="agileinfo_single">
+        <h3>@Model[0].tenta</h3>
+        <div class="col-md-4 agileinfo_single_left">
+            <img id="example" src="~/@Model[0].anhta " width="236" height="236" alt=" " class="img-responsive" />
+        </div>
+        <div class="col-md-8 agileinfo_single_right">
+            
+            <div class="w3agile_description">
+                <h2>Mô tả :</h2>
+                <p >
+                    @Model[0].thongtinveta
+                </p>
+            </div>
+            <div class="snipcart-item block">
+                <div class="snipcart-thumb agileinfo_single_right_snipcart">
+                    <h2> @Int32.Parse(@Model[0].giahientai).ToString("#,##0") VNĐ </h2>
+                </div>
+                <div class="snipcart-details agileinfo_single_right_details">
+                    <form action="#" method="post">
+                        <fieldset>
+                            <a class="btn btn-success" href="@Url.Action("ThemVaoGio", "GioHang", new { thucanID = Model[0].idta })"> <span class="glyphicon glyphicon-shopping-cart"></span> Order thức ăn </a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+	
+

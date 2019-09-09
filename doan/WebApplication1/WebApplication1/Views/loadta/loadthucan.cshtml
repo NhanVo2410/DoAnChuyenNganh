@@ -1,0 +1,43 @@
+﻿@model List<WebApplication1.Models.thucan>
+
+
+<div style="margin-left:-5px" class="top-brands">
+    <div class="container">
+        <h3>Thức ăn của quán</h3>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+
+            <div class="col-md-3 top_brand_left">
+                <div class="hover14 column">
+                    <div class="agile_top_brand_left_grid">
+                        @*<div class="agile_top_brand_left_grid_pos">
+                                <img src="images/offer.png" alt=" " class="img-responsive" />
+                            </div>*@
+                        <div class="agile_top_brand_left_grid1">
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        <a href="@Url.Action("loadchitiet", "chitietmonan",new {id = @Model[i].idta })"><img src="~/@Model[i].anhta" alt=" " class="img-responsive" /></a>
+                                        <p> @Model[i].tenta</p>
+                                        <h4> @Int32.Parse(@Model[i].giahientai).ToString("#,##0") VNĐ </h4>
+                                    </div>
+                                    <div class="snipcart-details top_brand_home_details">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <a class="btn btn-success" href="@Url.Action("ThemVaoGio", "GioHang", new { thucanID = Model[i].idta })"> <span class="glyphicon glyphicon-shopping-cart"></span> Order thức ăn </a>
+
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        <div style="clear:both;">  </div>
+    </div>
+</div>
+

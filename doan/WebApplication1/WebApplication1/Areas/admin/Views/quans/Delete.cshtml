@@ -1,0 +1,40 @@
+﻿@model WebApplication1.Models.quan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XOÁ QUÁN ĂN</h2><br />
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "quans")
+</div>
+
+<h3>Bạn có chắc chắn muốn xóa đi quán ăn này ?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenquan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenquan)
+        </dd>
+
+       
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            
+        </div>
+    }
+</div>

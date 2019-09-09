@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplication1.Models.donhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN VỀ ĐƠN HÀNG</h2>
+
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "donhangs", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Số điện thoại người nhận</th>
+                            <th>Ngày đặt</th>
+                            <th>Ghi chú</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.iddh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.sdtkh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ngaydat)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ghichu)</td>
+
+                                <td>
+                                    
+                                    <a href="@Url.Action("Details", "donhangs", new { id = item.iddh })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá đơn hàng này?')" href="@Url.Action("Delete", "donhangs", new { id = item.iddh })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

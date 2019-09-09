@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.danhmuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DANH MỤC QUÁN ĂN</h2>
+<div class="text-warning">
+    @ViewBag.CateError
+</div>
+<hr />
+
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "danhmucs")" role="button">Tạo danh mục mới</a>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên danh mục</th>
+                            
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.iddm)</td>
+                                <td>@Html.DisplayFor(modelItem => item.tendm)</td>
+                                
+                                <td>
+                                    <a href="@Url.Action("Edit", "danhmucs", new { id = item.iddm })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá danh mục này?')" href="@Url.Action("Delete", "danhmucs", new { id = item.iddm })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+

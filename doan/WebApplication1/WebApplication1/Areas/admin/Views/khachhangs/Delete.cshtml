@@ -1,0 +1,49 @@
+﻿@model WebApplication1.Models.khachhang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>XÓA KHÁCH HÀNG</h2><br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "khachhangs")
+</div>
+
+<h3>Bạn có chắn chắn muốn xóa khách hàng này ?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sdtkh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdtkh)
+        </dd>
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hovaten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hovaten)
+        </dd>
+
+        
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+        </div>
+    }
+</div>

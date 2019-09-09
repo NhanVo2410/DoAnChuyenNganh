@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="diadiemanuongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adacc" />
+    </Key>
+    <Property Name="adacc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adpass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="chitietdonhang">
+    <Key>
+      <PropertyRef Name="iddh" />
+      <PropertyRef Name="idta" />
+    </Key>
+    <Property Name="iddh" Type="Int32" Nullable="false" />
+    <Property Name="idta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="dongia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="donhang" Relationship="Self.FK_chitietdonhang_donhang" FromRole="chitietdonhang" ToRole="donhang" />
+    <NavigationProperty Name="thucan" Relationship="Self.FK_chitietdonhang_thucan" FromRole="chitietdonhang" ToRole="thucan" />
+  </EntityType>
+  <EntityType Name="danhmuc">
+    <Key>
+      <PropertyRef Name="iddm" />
+    </Key>
+    <Property Name="iddm" Type="Int32" Nullable="false" />
+    <Property Name="tendm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="quan" Relationship="Self.FK_quan_danhmuc" FromRole="danhmuc" ToRole="quan" />
+  </EntityType>
+  <EntityType Name="donhang">
+    <Key>
+      <PropertyRef Name="iddh" />
+    </Key>
+    <Property Name="iddh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sdtkh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ngaydat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="chitietdonhang" Relationship="Self.FK_chitietdonhang_donhang" FromRole="donhang" ToRole="chitietdonhang" />
+    <NavigationProperty Name="khachhang" Relationship="Self.FK_donhang_khachhang" FromRole="donhang" ToRole="khachhang" />
+  </EntityType>
+  <EntityType Name="khachhang">
+    <Key>
+      <PropertyRef Name="sdtkh" />
+    </Key>
+    <Property Name="sdtkh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anhkh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diadiemyeuthich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diadiemkem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="donhang" Relationship="Self.FK_donhang_khachhang" FromRole="khachhang" ToRole="donhang" />
+  </EntityType>
+  <EntityType Name="loaiquanan">
+    <Key>
+      <PropertyRef Name="idloaiquan" />
+    </Key>
+    <Property Name="idloaiquan" Type="Int32" Nullable="false" />
+    <Property Name="tenloaiquan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="quan" Relationship="Self.FK_quan_loaiquanan" FromRole="loaiquanan" ToRole="quan" />
+  </EntityType>
+  <EntityType Name="quan">
+    <Key>
+      <PropertyRef Name="idquan" />
+    </Key>
+    <Property Name="idquan" Type="Int32" Nullable="false" />
+    <Property Name="tenquan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idloaiquan" Type="Int32" />
+    <Property Name="mota" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hinhanhquan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hinhanhquan1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hinhanhquan2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sonha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tenduong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tenphuongxa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tenquanhuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tentp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="giomocua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="giodongcua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="binhluan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="luotxem" Type="Int32" />
+    <Property Name="urlggmap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="iddm" Type="Int32" />
+    <NavigationProperty Name="danhmuc" Relationship="Self.FK_quan_danhmuc" FromRole="quan" ToRole="danhmuc" />
+    <NavigationProperty Name="loaiquanan" Relationship="Self.FK_quan_loaiquanan" FromRole="quan" ToRole="loaiquanan" />
+    <NavigationProperty Name="thucan" Relationship="Self.FK_thucan_quan" FromRole="quan" ToRole="thucan" />
+  </EntityType>
+  <EntityType Name="thucan">
+    <Key>
+      <PropertyRef Name="idta" />
+    </Key>
+    <Property Name="idta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anhta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thongtinveta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="takhuyenmai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tahot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="giabandau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="giahientai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ngaydang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="giamgia" Type="Int32" />
+    <Property Name="luotxem" Type="Int32" />
+    <Property Name="idquan" Type="Int32" />
+    <NavigationProperty Name="chitietdonhang" Relationship="Self.FK_chitietdonhang_thucan" FromRole="thucan" ToRole="chitietdonhang" />
+    <NavigationProperty Name="quan" Relationship="Self.FK_thucan_quan" FromRole="thucan" ToRole="quan" />
+  </EntityType>
+  <Association Name="FK_chitietdonhang_donhang">
+    <End Role="donhang" Type="Self.donhang" Multiplicity="1" />
+    <End Role="chitietdonhang" Type="Self.chitietdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="donhang">
+        <PropertyRef Name="iddh" />
+      </Principal>
+      <Dependent Role="chitietdonhang">
+        <PropertyRef Name="iddh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_chitietdonhang_thucan">
+    <End Role="thucan" Type="Self.thucan" Multiplicity="1" />
+    <End Role="chitietdonhang" Type="Self.chitietdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="thucan">
+        <PropertyRef Name="idta" />
+      </Principal>
+      <Dependent Role="chitietdonhang">
+        <PropertyRef Name="idta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quan_danhmuc">
+    <End Role="danhmuc" Type="Self.danhmuc" Multiplicity="0..1" />
+    <End Role="quan" Type="Self.quan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="danhmuc">
+        <PropertyRef Name="iddm" />
+      </Principal>
+      <Dependent Role="quan">
+        <PropertyRef Name="iddm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_donhang_khachhang">
+    <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+    <End Role="donhang" Type="Self.donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khachhang">
+        <PropertyRef Name="sdtkh" />
+      </Principal>
+      <Dependent Role="donhang">
+        <PropertyRef Name="sdtkh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quan_loaiquanan">
+    <End Role="loaiquanan" Type="Self.loaiquanan" Multiplicity="0..1" />
+    <End Role="quan" Type="Self.quan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loaiquanan">
+        <PropertyRef Name="idloaiquan" />
+      </Principal>
+      <Dependent Role="quan">
+        <PropertyRef Name="idloaiquan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_thucan_quan">
+    <End Role="quan" Type="Self.quan" Multiplicity="0..1" />
+    <End Role="thucan" Type="Self.thucan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quan">
+        <PropertyRef Name="idquan" />
+      </Principal>
+      <Dependent Role="thucan">
+        <PropertyRef Name="idquan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="diadiemanuongEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin" EntityType="Self.admin" />
+    <EntitySet Name="chitietdonhang" EntityType="Self.chitietdonhang" />
+    <EntitySet Name="danhmuc" EntityType="Self.danhmuc" />
+    <EntitySet Name="donhang" EntityType="Self.donhang" />
+    <EntitySet Name="khachhang" EntityType="Self.khachhang" />
+    <EntitySet Name="loaiquanan" EntityType="Self.loaiquanan" />
+    <EntitySet Name="quan" EntityType="Self.quan" />
+    <EntitySet Name="thucan" EntityType="Self.thucan" />
+    <AssociationSet Name="FK_chitietdonhang_donhang" Association="Self.FK_chitietdonhang_donhang">
+      <End Role="donhang" EntitySet="donhang" />
+      <End Role="chitietdonhang" EntitySet="chitietdonhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_chitietdonhang_thucan" Association="Self.FK_chitietdonhang_thucan">
+      <End Role="thucan" EntitySet="thucan" />
+      <End Role="chitietdonhang" EntitySet="chitietdonhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quan_danhmuc" Association="Self.FK_quan_danhmuc">
+      <End Role="danhmuc" EntitySet="danhmuc" />
+      <End Role="quan" EntitySet="quan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_donhang_khachhang" Association="Self.FK_donhang_khachhang">
+      <End Role="khachhang" EntitySet="khachhang" />
+      <End Role="donhang" EntitySet="donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quan_loaiquanan" Association="Self.FK_quan_loaiquanan">
+      <End Role="loaiquanan" EntitySet="loaiquanan" />
+      <End Role="quan" EntitySet="quan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_thucan_quan" Association="Self.FK_thucan_quan">
+      <End Role="quan" EntitySet="quan" />
+      <End Role="thucan" EntitySet="thucan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

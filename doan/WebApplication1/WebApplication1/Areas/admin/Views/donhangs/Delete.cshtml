@@ -1,0 +1,71 @@
+﻿@model WebApplication1.Models.donhang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>XÓA ĐƠN HÀNG</h2>
+<br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "donhangs")
+</div>
+
+<h3>Bạn có chắc chắn muốn xóa đơn hàng này</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.iddh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iddh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.hovaten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.hovaten)
+            
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sdtkh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdtkh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaydat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaydat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghichu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghichu)
+        </dd>
+
+  
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

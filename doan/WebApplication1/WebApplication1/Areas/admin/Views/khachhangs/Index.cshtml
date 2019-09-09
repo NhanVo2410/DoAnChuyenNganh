@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.khachhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN VỀ KHÁCH HÀNG</h2>
+
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "khachhangs")" role="button">Tạo Khách hàng mới</a>
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "khachhangs", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tên tài khoản/ SĐT</th>
+                            <th>Mật khẩu</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.sdtkh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.matkhau)</td>
+                               
+                                <td>@Html.DisplayFor(modelItem => item.hovaten)</td>
+                                <td>@Html.DisplayFor(modelItem => item.email)</td>
+
+                                <td>
+                                    <a href="@Url.Action("Edit", "khachhangs", new { id = item.sdtkh })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                    <a href="@Url.Action("Details", "khachhangs", new { id = item.sdtkh })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xoá khách hàng này?')" href="@Url.Action("Delete", "khachhangs", new { id = item.sdtkh })"><i class="fa fa-times fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

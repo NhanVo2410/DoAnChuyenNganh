@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Hoá đơn";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@{
+    WebApplication1.Models.diadiemanuongEntities db = new WebApplication1.Models.diadiemanuongEntities();
+    var cus = db.khachhang.Find(Session["Phone"]);
+}
+<div class="w3l_banner_nav_right">
+    <section class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <div style="background:url(../images/khuyenmai.jpg) no-repeat 0px 0px;" class="w3l_banner_nav_right_banner">
+                        <h3>Make your <span>food</span> with Spicy.</h3>
+                        <div class="more">
+
+                            <a href="#" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="background:url(../images/khuyenmai.jpg) no-repeat 0px 0px;" class="w3l_banner_nav_right_banner1">
+                        <h3>Make your <span>food</span> with Spicy.</h3>
+                        <div class="more">
+
+                            <a href="" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="background:url(../images/khuyenmai.jpg) no-repeat 0px 0px;" class="w3l_banner_nav_right_banner2">
+                        <h3>upto <i>50%</i> off.</h3>
+                        <div class="more">
+
+                            <a href="" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- flexSlider -->
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" property="" />
+    <script defer src="~/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+</div>
+<div class="clearfix"></div>
+<div class="container">
+    <div class="spec ">
+        <h3><a href="#" style="text-decoration:none;">Hoá đơn @Session["MDH"]</a></h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <div class="alert alert-danger">
+        Hình thức thanh toán: chỉ nhận tiền mặt khi giao hàng.
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Họ và tên khách: @cus.hovaten
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <br />
+                        Số điện thoại: @Session["Phone"]<br />
+                        Email: @cus.email<br />
+                        Địa chỉ: @cus.diachi<br />
+                        Ghi chú: @db.donhang.Find(Session["MDH"]).ghichu
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    Food Located Store
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <br />
+                        Số điện thoại: 0989145655<br />
+                        Email: nhan.vt2126@gmail.com<br />
+                        Địa chỉ: Q1.Tp HCM
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Sản phẩm
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                            int tong = 0;
+                        }
+                        @foreach (var item in db.chitietdonhang.SqlQuery("Select * from chitietdonhang Where iddh='" + Session["MDH"] + "'"))
+                        {
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td><img src="~/@item.thucan.anhta" width="70" height="60"></td>
+                                <td>@item.thucan.tenta</td>
+                                <td>@item.soluong</td>
+                                <td>@Int32.Parse(item.dongia).ToString("#,##0") VNĐ</td>
+                            </tr>
+                            tong += Int32.Parse(item.dongia);
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Tổng tiền:</td>
+                            <td>@tong.ToString("#,##0") VNĐ</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

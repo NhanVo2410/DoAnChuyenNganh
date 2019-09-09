@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication1.Models.chitietdonhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
+
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "chitietdonhangs", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên thức ăn</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.iddh)</td>
+                                <td>@Html.DisplayFor(modelItem => item.thucan.tenta)</td>
+                                <td>@Html.DisplayFor(modelItem => item.soluong)</td>
+                                <td>@Html.DisplayFor(modelItem => item.dongia)</td>
+
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

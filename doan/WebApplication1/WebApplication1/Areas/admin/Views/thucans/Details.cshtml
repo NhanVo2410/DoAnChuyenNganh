@@ -1,0 +1,130 @@
+﻿@model WebApplication1.Models.thucan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>THÔNG TIN CHI TIẾT VỀ MÓN ĂN</h2><br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "thucans")
+</div>
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thongtinveta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thongtinveta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.takhuyenmai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.takhuyenmai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tahot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tahot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trangthai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giabandau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giabandau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giahientai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giahientai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaydang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaydang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giamgia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giamgia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.luotxem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luotxem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quan.tenquan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quan.tenquan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa","Edit", "thucans", new { id = Model.idta }) 
+  
+</p>

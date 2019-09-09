@@ -1,0 +1,236 @@
+﻿@model List<WebApplication1.Models.quan>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<section class="slider">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <div class="w3l_banner_nav_right_banner">
+                    <img style="width:1010px;height:500px" src="~/@Model[0].hinhanhquan" alt=" " />
+
+                </div>
+            </li>
+            <li>
+                <div class="w3l_banner_nav_right_banner">
+                    <img style="width:1010px;height:500px" src="~/@Model[0].hinhanhquan1" alt=" " />
+
+                </div>
+            </li>
+            <li>
+                <div class="w3l_banner_nav_right_banner">
+                    <img style="width:1010px;height:500px" src="~/@Model[0].hinhanhquan2" alt=" " />
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<div class="clearfix"></div>
+<div>@Html.Action("loadthucan", "loadta", new { @Model[0].idquan })</div>
+
+
+
+
+
+<div class="banner_bottom">
+
+
+    <div class="col-md-6 wthree_banner_bottom_left">
+
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+                <a href="#descriptions" role="tab" data-toggle="tab">
+                    Mô tả
+                </a>
+            </li>
+            <li>
+                <a href="#specifications" role="tab" data-toggle="tab">
+                    Chi tiết
+                </a>
+            </li>
+            <li>
+                <a href="#comments" role="tab" data-toggle="tab">
+                    <i class="fa fa-envelope"></i> Comments
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="descriptions">
+                <h2 class="gallery-price" style="color:red">Mô tả</h2>
+                <div class="gallery-price" style="color:blue">
+                    Quán ăn về: @Model[0].mota
+                </div>
+
+
+            </div>
+            <div class="tab-pane fade row" id="specifications">
+
+
+                <h2 class="gallery-price" style="color:red">Chi tiết về quán</h2>
+
+
+                <div class="gallery-price" style="color:blue">
+                    Tên chi nhánh: @Model[0].tenquan
+                </div>
+                <div>
+                    Địa chỉ: số @Model[0].sonha, đường @Model[0].tenduong, phường @Model[0].tenphuongxa ,@Model[0].tenquanhuyen, @Model[0].tentp
+                </div>
+                <div>
+                    Giờ hoạt động(mở-đóng cửa): @Model[0].giomocua-@Model[0].giodongcua
+                </div>
+                <div>
+                    Trạng Thái: @Model[0].trangthai
+                </div>
+                <div>
+                    Lượt xem: @Model[0].luotxem
+                </div>
+
+
+            </div>
+            <div class="tab-pane fade" id="comments">
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://vernonlog-disqus-com-1.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                @*<div class="fb-comments" data-href="/chi-tiet/@Model.Name.ToAscii().ToLower()_@Model.Id" data-width="100%" data-numposts="5" data-colorscheme="light"></div>*@
+            </div>
+        </div>
+
+
+        @*div class="gallery-price">@Model[i].hinhanhcn</div>*@
+        @*<div class="gallery-price">@Model[i].xuatxu</div>*@
+        @*<div class="gallery-price" style="color:red">@Model[i].gia</div>*@
+    </div>
+
+    @*<div class="col-md-4 wthree_banner_bottom_left">
+            <div class="wthree_banner_bottom_left_grid">
+                <img src="~/images/5.jpg" alt=" " class="img-responsive" />
+                <div class="wthree_banner_btm_pos">
+                    <h3>introducing <span>best store</span> for <i>groceries</i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 wthree_banner_bottom_left">
+            <div class="wthree_banner_bottom_left_grid">
+                <img src="~/images/6.jpg" alt=" " class="img-responsive" />
+                <div class="wthree_banner_btm_pos1">
+                    <h3>Save <span>Upto</span> $10</h3>
+                </div>
+            </div>
+        </div>*@
+    @*<div class=""> </div>
+
+        <div class="clearfix"> </div>*@
+    <!-- Nav tabs -->
+
+    <div class="col-md-4 wthree_banner_bottom_left">
+        <div id="map" >
+            <h2 class="gallery-price" ;font-weight: bold;">Bản đồ</h2>
+            <iframe src="@Model[0].urlggmap" width="470" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div style="clear:both;">  </div>
+
+
+
+</div>
+
+    <!-- flexSlider -->
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" property="" />
+    <script defer src="~/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+
+    <style>
+        /* Tab Navigation */
+        .nav-tabs {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+            .nav-tabs > li > a {
+                background: #DADADA;
+                border-radius: 0;
+                box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);
+                font-size: 19px;
+                font-weight: bold;
+            }
+
+            .nav-tabs > li.active > a,
+            .nav-tabs > li.active > a:hover {
+                background: #fff;
+                box-shadow: inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4);
+            }
+
+        /* Tab Content */
+        .tab-pane {
+            background: #fff;
+            box-shadow: 0 0 4px rgba(0,0,0,.4);
+            border-radius: 0;
+            padding: 10px;
+        }
+
+        /*  responsive facebook comment box*/
+        .fb_iframe_widget,
+        .fb_iframe_widget span,
+        .fb_iframe_widget span iframe[style] {
+            min-width: 100% !important;
+            width: 100% !important;
+        }
+
+
+        .scroll-img {
+            border-left: 1px solid #DADADA;
+            overflow: hidden;
+        }
+
+            .scroll-img ul {
+                height: 800px;
+                margin: 0;
+            }
+
+                .scroll-img ul li {
+                    display: block;
+                }
+    </style>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//vernonlog-disqus-com-1.disqus.com/count.js" async></script>
+
+
+

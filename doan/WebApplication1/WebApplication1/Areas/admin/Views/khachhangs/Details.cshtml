@@ -1,0 +1,96 @@
+﻿@model WebApplication1.Models.khachhang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>THÔNG TIN CHI TIẾT VỀ KHÁCH HÀNG</h2><br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "khachhangs")
+</div>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.matkhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matkhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hovaten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hovaten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gioitinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gioitinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaysinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaysinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhkh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhkh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diadiemyeuthich)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diadiemyeuthich)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diadiemkem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diadiemkem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa","Edit", "Edit", new { id = Model.sdtkh }) 
+</p>

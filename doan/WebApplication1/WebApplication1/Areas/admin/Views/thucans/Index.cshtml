@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.thucan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN VỀ MÓN ĂN</h2>
+
+<div class="text-warning">
+    @ViewBag.ProError
+</div>
+<hr />
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="btn btn-primary btn-default" href="@Url.Action("Create", "thucans")" role="button">Tạo món ăn mới</a>
+            <div class="form-group input-group navbar-right">
+                @using (Ajax.BeginForm("Index", "thucans", new AjaxOptions { InsertionMode = InsertionMode.Replace, HttpMethod = "Get" }))
+                {
+
+                }
+            </div>
+        </div>
+        <div class="panel-body" style="width:100%;height:500px;overflow:auto;">
+            <div class="table-responsive table-bordered">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên món ăn</th>
+                            <th>Hình ảnh</th>
+                            <th>Giá</th>
+                            <th>Thuộc quán ăn</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.idquan)</td>
+                            <td>@Html.DisplayFor(modelItem => item.tenta)</td>
+                            <td><img src="~/@item.anhta" width="50" height="50" /></td>
+                            <td>@Html.DisplayFor(modelItem => item.giahientai)</td>
+                            <td>@Html.DisplayFor(modelItem => item.quan.tenquan)</td>
+
+                            <td>
+                                <a href="@Url.Action("Edit", "thucans", new { id = item.idta })"><i class="fa fa-pencil fa-fw"></i></a>|
+                                <a href="@Url.Action("Details", "thucans", new { id = item.idta })"><i class="fa fa-list-alt fa-fw"></i></a>|
+                                <a onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này?')" href="@Url.Action("Delete", "thucans", new { id = item.idta })"><i class="fa fa-times fa-fw"></i></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>

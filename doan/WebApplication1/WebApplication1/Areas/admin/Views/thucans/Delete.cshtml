@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.thucan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>XÓA MÓN ĂN</h2>
+
+<h3>Bạn có muốn xóa món ăn này ?</h3>
+<br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "thucans")
+</div>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenta)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+           
+        </div>
+    }
+</div>

@@ -1,0 +1,167 @@
+﻿@model WebApplication1.Models.quan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT THÔNG TIN QUÁN ĂN</h2><br />
+
+
+<div>
+    <i class="fa fa-undo fa-fw"></i>@Html.ActionLink("Quay lại", "Index", "quans")
+</div>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenquan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenquan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hinhanhquan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinhanhquan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hinhanhquan1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinhanhquan1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hinhanhquan2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinhanhquan2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sonha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sonha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenduong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenduong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenphuongxa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenphuongxa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenquanhuyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenquanhuyen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tentp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tentp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giomocua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giomocua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.giodongcua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giodongcua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trangthai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.binhluan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.binhluan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.luotxem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luotxem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlggmap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlggmap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.danhmuc.tendm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.danhmuc.tendm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loaiquanan.tenloaiquan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaiquanan.tenloaiquan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa","Edit", "Edit", new { id = Model.idquan }) 
+    
+</p>
